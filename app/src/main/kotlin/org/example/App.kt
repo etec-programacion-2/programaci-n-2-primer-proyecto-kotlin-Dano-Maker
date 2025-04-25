@@ -11,7 +11,7 @@ fun mostrarTiposDeDatos() {
     println("Altura: $altura")
     println("Es estudiante: $esEstudiante")
     
-    Rectangulo() // ✅ Llamamos correctamente a la función
+    Rectangulo()
 }
 
 fun Rectangulo() {
@@ -21,8 +21,19 @@ fun Rectangulo() {
     println("El ancho del rectángulo es $ancho, su altura es $alto y su área es $area")
 }
 
-// Opcional: función main para ejecutar
-fun main() {
-    mostrarTiposDeDatos()
+
+fun esParOImpar(numero: Int) {
+    when (numero % 2) {
+        0 -> println("El número $numero es par")
+        else -> println("El número $numero es impar")
+    }
 }
 
+fun llamarfunciones() {
+    mostrarTiposDeDatos()
+     esParOImpar(7)
+    esParOImpar(12)
+    esParOImpar(50)
+    esParOImpar(-3)
+    esParOImpar(0)
+}

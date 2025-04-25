@@ -29,11 +29,57 @@ fun esParOImpar(numero: Int) {
     }
 }
 
-fun llamarfunciones() {
+fun determinarTipoDeNumero(numero: Int): String {
+    return when {
+        numero > 0 -> "El número es positivo"
+        numero < 0 -> "El número es negativo"
+        else -> "El número es cero"
+    }
+}
+
+fun mostrarNumerosConFor() {
+    println("Números del 1 al 10 usando for:")
+    for (i in 1..10) {
+        println(i)
+    }
+}
+
+// Función que muestra números del 1 al 10 usando while
+fun mostrarNumerosConWhile() {
+    println("Números del 1 al 10 usando while:")
+    var i = 1
+    while (i <= 10) {
+        println(i)
+        i++
+    }
+}
+
+// Función que muestra números del 1 al 10 usando do-while
+fun mostrarNumerosConDoWhile() {
+    println("Números del 1 al 10 usando do-while:")
+    var i = 1
+    do {
+        println(i)
+        i++
+    } while (i <= 10)
+}
+
+
+fun main() {
     mostrarTiposDeDatos()
-     esParOImpar(7)
+    esParOImpar(7)
     esParOImpar(12)
     esParOImpar(50)
     esParOImpar(-3)
     esParOImpar(0)
+    println("${determinarTipoDeNumero(5)}")   
+    println(determinarTipoDeNumero(-3))  
+    println(determinarTipoDeNumero(0))   
+    mostrarNumerosConFor()
+    println()
+    
+    mostrarNumerosConWhile()
+    println()
+    
+    mostrarNumerosConDoWhile()
 }

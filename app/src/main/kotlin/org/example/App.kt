@@ -44,7 +44,7 @@ fun mostrarNumerosConFor() {
     }
 }
 
-// Función que muestra números del 1 al 10 usando while
+
 fun mostrarNumerosConWhile() {
     println("Números del 1 al 10 usando while:")
     var i = 1
@@ -54,7 +54,7 @@ fun mostrarNumerosConWhile() {
     }
 }
 
-// Función que muestra números del 1 al 10 usando do-while
+
 fun mostrarNumerosConDoWhile() {
     println("Números del 1 al 10 usando do-while:")
     var i = 1
@@ -64,6 +64,46 @@ fun mostrarNumerosConDoWhile() {
     } while (i <= 10)
 }
 
+fun factorial(n: Int): Long {
+    if (n < 0) {
+        throw IllegalArgumentException("El factorial no está definido para números negativos")
+    }
+    
+    var resultado: Long = 1
+    for (i in 1..n) {
+        resultado *= i
+    }
+    return resultado
+}
+
+fun factorialRecursivo(n: Int): Long {
+    if (n < 0) {
+        throw IllegalArgumentException("El factorial no está definido para números negativos")
+    }
+    
+    return if (n <= 1) 1 else n * factorialRecursivo(n - 1)
+}
+
+
+fun potencia(base: Double, exponente: Int): Double {
+    if (base == 0.0 && exponente < 0) {
+        throw IllegalArgumentException("No se puede elevar 0 a un exponente negativo")
+    }
+    
+    var resultado = 1.0
+    val expAbs = kotlin.math.abs(exponente)
+    
+    for (i in 1..expAbs) {
+        resultado *= base
+    }
+    
+    return if (exponente >= 0) resultado else 1.0 / resultado
+}
+
+
+fun potenciaConDefecto(base: Double = 2.0, exponente: Int = 1): Double {
+    return potencia(base, exponente)
+}
 
 fun main() {
     mostrarTiposDeDatos()
@@ -82,4 +122,17 @@ fun main() {
     println()
     
     mostrarNumerosConDoWhile()
+
+    println("Factorial de 5: ${factorial(5)}")
+    println("Factorial recursivo de 5: ${factorialRecursivo(5)}")
+    
+    println("2^3 = ${potencia(2.0, 3)}")
+    println("5^2 = ${potencia(5.0, 2)}")
+    println("3^-2 = ${potencia(3.0, -2)}")
+    
+
+    println("Potencia con valores por defecto: ${potenciaConDefecto()}")  // 2^1 = 2.0
+    println("Potencia con base por defecto: ${potenciaConDefecto(exponente = 3)}")  // 2^3 = 8.0
+    println("Potencia con exponente por defecto: ${potenciaConDefecto(base = 5.0)}")  // 5^1 = 5.0
 }
+
